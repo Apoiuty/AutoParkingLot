@@ -1,4 +1,4 @@
-from DB.operation import DatabaseVisitor
+from db.operation import DatabaseVisitor
 import sqlite3
 #开发时使用创建
 if __name__=='__main__':
