@@ -7,7 +7,7 @@ if __name__=='__main__':
     cursor = conn.cursor()
     cursor.close()
     conn.commit()
-    conn.close()
+    conn.close()#
     dbvisitor=DatabaseVisitor('./Database.db')
     sql='''CREATE TABLE House
        (Hcar VARCHAR(10) PRIMARY KEY ,
