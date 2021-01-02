@@ -2,7 +2,7 @@ import sqlite3
 
 # 数据库访问类
 class DatabaseVisitor():
-    def __init__(self, db):
+    def __init__(self, db='../Database.db'):
         self._conn = None
         self._cursor = None
         self._db = db
@@ -53,6 +53,18 @@ class DatabaseVisitor():
             return result
         except:
             print('find_all error')
+            return False
+        finally:
+            self.close()
+    #只查询一个
+    def find_one(self, sql):
+        self.connect()
+        try:
+            self._cursor.execute(sql)
+            result = self._cursor.fetchone()
+            return result
+        except:
+            print('find_one error')
             return False
         finally:
             self.close()

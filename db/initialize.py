@@ -3,12 +3,12 @@ import sqlite3
 #开发时使用创建
 if __name__=='__main__':
 
-    conn = sqlite3.connect('./Database.db')
+    conn = sqlite3.connect('../Database.db')
     cursor = conn.cursor()
     cursor.close()
     conn.commit()
     conn.close()#
-    dbvisitor=DatabaseVisitor('./Database.db')
+    dbvisitor=DatabaseVisitor()
     sql='''CREATE TABLE House
        (Hcar VARCHAR(10) PRIMARY KEY ,
        Howner VARCHAR(10), 

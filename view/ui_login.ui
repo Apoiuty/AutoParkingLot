@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>login</class>
+ <widget class="QWidget" name="login">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -21,7 +21,7 @@
     <rect>
      <x>118</x>
      <y>26</y>
-     <width>181</width>
+     <width>239</width>
      <height>41</height>
     </rect>
    </property>
@@ -41,9 +41,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>118</x>
+     <x>95</x>
      <y>86</y>
-     <width>41</width>
+     <width>59</width>
      <height>20</height>
     </rect>
    </property>
@@ -60,9 +60,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>118</x>
+     <x>95</x>
      <y>134</y>
-     <width>41</width>
+     <width>66</width>
      <height>20</height>
     </rect>
    </property>
@@ -76,20 +76,20 @@
     <string>密   码：</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="input_username">
    <property name="geometry">
     <rect>
-     <x>168</x>
+     <x>184</x>
      <y>86</y>
      <width>113</width>
      <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="input_password">
    <property name="geometry">
     <rect>
-     <x>168</x>
+     <x>184</x>
      <y>134</y>
      <width>113</width>
      <height>20</height>
@@ -99,12 +99,12 @@
     <enum>QLineEdit::Password</enum>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QRadioButton" name="radiobtn_social">
    <property name="geometry">
     <rect>
-     <x>169</x>
+     <x>185</x>
      <y>179</y>
-     <width>71</width>
+     <width>96</width>
      <height>16</height>
     </rect>
    </property>
@@ -118,12 +118,12 @@
     <string>社会停车</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QRadioButton" name="radiobtn_house">
    <property name="geometry">
     <rect>
-     <x>235</x>
+     <x>263</x>
      <y>177</y>
-     <width>69</width>
+     <width>95</width>
      <height>20</height>
     </rect>
    </property>
@@ -137,11 +137,11 @@
     <string>小区停车</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_login">
    <property name="geometry">
     <rect>
-     <x>183</x>
-     <y>213</y>
+     <x>162</x>
+     <y>218</y>
      <width>60</width>
      <height>23</height>
     </rect>
@@ -159,9 +159,9 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>118</x>
+     <x>95</x>
      <y>176</y>
-     <width>41</width>
+     <width>68</width>
      <height>20</height>
     </rect>
    </property>
@@ -173,6 +173,25 @@
    </property>
    <property name="text">
     <string>模   式：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tips">
+   <property name="geometry">
+    <rect>
+     <x>139</x>
+     <y>253</y>
+     <width>145</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
