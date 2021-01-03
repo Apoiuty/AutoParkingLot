@@ -33,10 +33,9 @@ class LoginControl(QMainWindow,Ui_login):
             else:
                 if password==db_password:
                     self.label_tips.setText('登录成功')
-                    #print('登录成功')
-                    #self.open_working_window()#打开对应模式的工作界面
-                    #time.sleep(1)
-                    #self.close()#关闭登录界面
+                    time.sleep(1)
+                    self.close()#关闭登录界面
+                    self.open_working_window()#打开对应模式的工作界面
                 else:
                     self.label_tips.setText('密码错误')
 
@@ -44,7 +43,6 @@ class LoginControl(QMainWindow,Ui_login):
     def open_working_window(self):
         if self.radiobtn_social.isChecked()==True:
             pass
-            #打开社会停车场工作界面
         else:
             pass
 
