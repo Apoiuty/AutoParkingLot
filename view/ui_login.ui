@@ -172,7 +172,7 @@
     </font>
    </property>
    <property name="text">
-    <string>模   式：</string>
+    <string>环   境：</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_tips">
