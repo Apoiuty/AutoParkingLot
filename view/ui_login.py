@@ -9,9 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication,QMainWindow
 
 
-class Ui_login(object):
+class Ui_login(QMainWindow):
     def setupUi(self, login):
         login.setObjectName("login")
         login.setEnabled(True)

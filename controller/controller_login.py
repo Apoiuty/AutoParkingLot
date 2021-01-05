@@ -21,7 +21,7 @@ class LoginControl(QMainWindow,Ui_login):
         if username=='' or password=='':#判空
             self.label_tips.setText('请输入用户名和密码')
         elif self.radiobtn_house.isChecked()==False and self.radiobtn_social.isChecked()==False:
-            self.label_tips.setText('请选择工作模式')
+            self.label_tips.setText('请选择工作环境')
         else:
             sql="SELECT Upassword FROM User WHERE Uname = '%s'" % (username)
             re=dbvisitor.find_one(sql)
