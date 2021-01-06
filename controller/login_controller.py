@@ -15,6 +15,7 @@ class LoginController():
         self.view.setupUi(self.view)
         self.view.btn_login.clicked.connect(lambda: self.click_btn_login())
         self.view.show()  # 控制器创建视图
+        self.new_view=None
 
     # 登录动作
     def click_btn_login(self):
@@ -31,16 +32,18 @@ class LoginController():
             if flag == True:
                 self.view.show_login_ok_tips()
                 # time.sleep(1)
-                self.view.close()
                 self.open_working_windows(env_society, env_home)
+                self.view.close()
+
             else:
                 self.view.show_input_error_tips()
 
-    def open_working_windows(self, env_society, env_home):
+    def open_working_windows(self, env_home):
         if env_home == True:
-            new_working_window = home_controller.HomeController()
+            self.new_view = home_controller.HomeController()#控制新的视图出现
+
         else:
-            new_working_window=society_controller.SocietyController()
+            self.new_view=society_controller.SocietyController()
 
 
 if __name__ == '__main__':
@@ -48,3 +51,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     mainwindow = LoginController()
     sys.exit(app.exec_())
+
