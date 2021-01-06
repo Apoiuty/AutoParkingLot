@@ -32,9 +32,9 @@ class LoginController():
                 self.view.show_login_ok_tips()
                 # time.sleep(1)
                 self.view.close()
+                self.open_working_windows(env_society, env_home)
             else:
                 self.view.show_input_error_tips()
-                self.open_working_windows(env_society, env_home)
 
     def open_working_windows(self, env_society, env_home):
         if env_home == True:

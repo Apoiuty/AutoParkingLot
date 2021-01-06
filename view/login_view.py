@@ -9,16 +9,20 @@ class LoginView(QMainWindow,Ui_login):
         self.setupUi(self)
 
     def get_input_username(self):
-        return self.line_input_username.text()
+        re=self.line_input_username.text()
+        return re
 
     def get_input_password(self):
-        return self.view.line_input_password.text()
+        re=self.line_input_password.text()
+        return re
 
     def is_env_home_selected(self):
-        return self.view.radiobtn_home.isChecked()
+        re=self.radiobtn_home.isChecked()
+        return re
 
     def is_env_society_selected(self):
-        return self.view.radiobtn_society.isChecked()
+        re=self.radiobtn_society.isChecked()
+        return re
 
     def show_input_lack_tips(self):
         self.label_tips.setText('请输入用户名和密码')
