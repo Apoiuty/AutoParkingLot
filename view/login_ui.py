@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_login.ui'
+# Form implementation generated from reading ui file 'login_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -9,10 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication,QMainWindow
 
-
-class Ui_login(QMainWindow):
+class Ui_login():
     def setupUi(self, login):
         login.setObjectName("login")
         login.setEnabled(True)
@@ -39,27 +37,27 @@ class Ui_login(QMainWindow):
         font.setPointSize(12)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
-        self.input_username = QtWidgets.QLineEdit(login)
-        self.input_username.setGeometry(QtCore.QRect(184, 86, 113, 20))
-        self.input_username.setObjectName("input_username")
-        self.input_password = QtWidgets.QLineEdit(login)
-        self.input_password.setGeometry(QtCore.QRect(184, 134, 113, 20))
-        self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_password.setObjectName("input_password")
-        self.radiobtn_social = QtWidgets.QRadioButton(login)
-        self.radiobtn_social.setGeometry(QtCore.QRect(185, 179, 96, 16))
+        self.line_input_username = QtWidgets.QLineEdit(login)
+        self.line_input_username.setGeometry(QtCore.QRect(184, 86, 113, 20))
+        self.line_input_username.setObjectName("line_input_username")
+        self.line_input_password = QtWidgets.QLineEdit(login)
+        self.line_input_password.setGeometry(QtCore.QRect(184, 134, 113, 20))
+        self.line_input_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.line_input_password.setObjectName("line_input_password")
+        self.radiobtn_society = QtWidgets.QRadioButton(login)
+        self.radiobtn_society.setGeometry(QtCore.QRect(185, 179, 96, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
-        self.radiobtn_social.setFont(font)
-        self.radiobtn_social.setObjectName("radiobtn_social")
-        self.radiobtn_house = QtWidgets.QRadioButton(login)
-        self.radiobtn_house.setGeometry(QtCore.QRect(263, 177, 95, 20))
+        self.radiobtn_society.setFont(font)
+        self.radiobtn_society.setObjectName("radiobtn_society")
+        self.radiobtn_home = QtWidgets.QRadioButton(login)
+        self.radiobtn_home.setGeometry(QtCore.QRect(263, 177, 95, 20))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
-        self.radiobtn_house.setFont(font)
-        self.radiobtn_house.setObjectName("radiobtn_house")
+        self.radiobtn_home.setFont(font)
+        self.radiobtn_home.setObjectName("radiobtn_home")
         self.btn_login = QtWidgets.QPushButton(login)
         self.btn_login.setGeometry(QtCore.QRect(162, 218, 60, 23))
         font = QtGui.QFont()
@@ -92,7 +90,7 @@ class Ui_login(QMainWindow):
         self.label.setText(_translate("login", "欢迎登陆停车管理系统"))
         self.label_2.setText(_translate("login", "用户名："))
         self.label_3.setText(_translate("login", "密   码："))
-        self.radiobtn_social.setText(_translate("login", "社会停车"))
-        self.radiobtn_house.setText(_translate("login", "小区停车"))
+        self.radiobtn_society.setText(_translate("login", "社会停车"))
+        self.radiobtn_home.setText(_translate("login", "小区停车"))
         self.btn_login.setText(_translate("login", "登  录"))
-        self.label_4.setText(_translate("login", "模   式："))
+        self.label_4.setText(_translate("login", "环   境："))

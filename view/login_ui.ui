@@ -76,7 +76,7 @@
     <string>密   码：</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_username">
+  <widget class="QLineEdit" name="line_input_username">
    <property name="geometry">
     <rect>
      <x>184</x>
@@ -86,7 +86,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_password">
+  <widget class="QLineEdit" name="line_input_password">
    <property name="geometry">
     <rect>
      <x>184</x>
@@ -99,7 +99,7 @@
     <enum>QLineEdit::Password</enum>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radiobtn_social">
+  <widget class="QRadioButton" name="radiobtn_society">
    <property name="geometry">
     <rect>
      <x>185</x>
@@ -118,7 +118,7 @@
     <string>社会停车</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radiobtn_house">
+  <widget class="QRadioButton" name="radiobtn_home">
    <property name="geometry">
     <rect>
      <x>263</x>
