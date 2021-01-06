@@ -36,6 +36,9 @@ class LoginView(QMainWindow,Ui_login):
     def show_input_error_tips(self):
         self.label_tips.setText("用户名或密码错误")
 
+    def show_input_so_long_tips(self):
+        self.label_tips.setText("用户名和密码过长")
+
 if __name__ == '__main__':
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     app = QApplication(sys.argv)  # 创建 Application 实例 app
