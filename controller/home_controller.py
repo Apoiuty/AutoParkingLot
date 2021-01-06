@@ -3,9 +3,6 @@ from view.home_view import HomeView
 from model.home_model import HomeModel
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
-import time
-from db.operation import DatabaseVisitor
-
 
 class HomeController():
     def __init__(self):

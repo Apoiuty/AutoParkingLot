@@ -1,16 +1,14 @@
 from PyQt5 import QtCore
-from view.home_view import HomeView
-from model.home_model import HomeModel
+from view.society_view import SocietyView
+from model.society_model import SocietyModel
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
-import time
-from db.operation import DatabaseVisitor
 
 
 class SocietyController():
     def __init__(self):
-        self.view = HomeView()
-        self.model = HomeModel()
+        self.view = SocietyView()
+        self.model = SocietyModel()
         self.view.setupUi(self.view)
         self.view.show()  # 控制器创建视图
 
