@@ -2,7 +2,7 @@ from PyQt5 import QtCore
 from view.login_view import LoginView
 from model.login_model import LoginModel
 from controller import home_controller,society_controller
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,qApp
 import sys
 
 class LoginController():
@@ -39,7 +39,7 @@ class LoginController():
     # 控制新的视图出现
     def open_working_windows(self, env_home):
         if env_home == True:
-            self.new_view = home_controller.HomeController()
+            self.new_view = home_controller.HomeController()#新控制器负责创建新视图
         else:
             self.new_view=society_controller.SocietyController()
 
@@ -47,5 +47,6 @@ if __name__ == '__main__':
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     app = QApplication(sys.argv)
     mainwindow = LoginController()
-    sys.exit(app.exec_())
+    exit_code=app.exec_()
+    sys.exit(exit_code)
 

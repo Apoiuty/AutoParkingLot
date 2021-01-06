@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
-    <height>607</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>停车管理系统-社会停车模式</string>
@@ -26,7 +32,7 @@
     <property name="font">
      <font>
       <family>宋体</family>
-      <pointsize>14</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -45,57 +51,37 @@
     <property name="font">
      <font>
       <family>宋体</family>
-      <pointsize>14</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
      <string>车辆出口</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QPushButton" name="btn_relogin">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>96</y>
-      <width>283</width>
-      <height>228</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QGraphicsView" name="graphicsView_2">
-    <property name="geometry">
-     <rect>
-      <x>467</x>
-      <y>96</y>
-      <width>283</width>
-      <height>228</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
+      <x>697</x>
       <y>9</y>
-      <width>64</width>
-      <height>22</height>
+      <width>87</width>
+      <height>26</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>退  出</string>
+     <string>重新登录</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>142</x>
-      <y>344</y>
+      <x>139</x>
+      <y>268</y>
       <width>158</width>
       <height>39</height>
      </rect>
@@ -103,7 +89,7 @@
     <property name="font">
      <font>
       <family>宋体</family>
-      <pointsize>14</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -113,15 +99,15 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>54</x>
-      <y>398</y>
+      <x>51</x>
+      <y>322</y>
       <width>73</width>
       <height>38</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -132,15 +118,15 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>54</x>
-      <y>452</y>
+      <x>51</x>
+      <y>376</y>
       <width>73</width>
       <height>38</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -151,15 +137,15 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>472</x>
-      <y>398</y>
+      <x>469</x>
+      <y>322</y>
       <width>73</width>
       <height>38</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -170,8 +156,8 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>561</x>
-      <y>344</y>
+      <x>558</x>
+      <y>268</y>
       <width>158</width>
       <height>39</height>
      </rect>
@@ -179,7 +165,7 @@
     <property name="font">
      <font>
       <family>宋体</family>
-      <pointsize>14</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -189,15 +175,15 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>472</x>
-      <y>452</y>
+      <x>469</x>
+      <y>376</y>
       <width>73</width>
       <height>38</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
@@ -208,20 +194,159 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>472</x>
-      <y>500</y>
+      <x>469</x>
+      <y>424</y>
       <width>73</width>
       <height>38</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>宋体</family>
       <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
      <string>应收费用：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_in_car">
+    <property name="geometry">
+     <rect>
+      <x>136</x>
+      <y>322</y>
+      <width>195</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_in_time">
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>376</y>
+      <width>173</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_out_car">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>322</y>
+      <width>177</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_fee">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>424</y>
+      <width>192</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_out_time">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>376</y>
+      <width>190</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_in_img">
+    <property name="geometry">
+     <rect>
+      <x>55</x>
+      <y>139</y>
+      <width>272</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_out_img">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>139</y>
+      <width>272</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -230,8 +355,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
-     <height>19</height>
+     <width>800</width>
+     <height>18</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -242,7 +367,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <widget class="QMenu" name="menu">
@@ -251,7 +376,7 @@
       <x>169</x>
       <y>99</y>
       <width>102</width>
-      <height>107</height>
+      <height>90</height>
      </rect>
     </property>
     <property name="font">
@@ -266,7 +391,6 @@
     <addaction name="separator"/>
     <addaction name="action_2"/>
     <addaction name="separator"/>
-    <addaction name="action_12"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="font">
