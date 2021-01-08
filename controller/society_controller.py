@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox,qApp
 import sys
 
 
-
 class SocietyController():
     def __init__(self):
         self.view = SocietyView()
