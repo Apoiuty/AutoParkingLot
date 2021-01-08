@@ -22,7 +22,6 @@ class SocietyView(QMainWindow,Ui_society):
     def show_out_car(self,result):
         self.label_out_car.setText(result)
 
-
     def show_in_time(self):
         time = QtCore.QDateTime.currentDateTime()
         time = time.toString("yyyy-MM-dd hh:mm:ss")
@@ -34,14 +33,6 @@ class SocietyView(QMainWindow,Ui_society):
         self.label_out_time.setText(time)
 
     def show_in_img(self,path):
-        # showImage = QtGui.QImage(show.data, show.shape[1], show.shape[0], QtGui.QImage.Format_RGB888)
-        # pix = QtGui.QPixmap.fromImage(showImage)
-        # self.item = QGraphicsPixmapItem(pix)  # 创建像素图元
-        #
-        # self.scene = QGraphicsScene()  # 创建场景
-        # self.scene.addItem(self.item)
-        # self.graphicsView.setScene(self.scene)
-        #img=Image.open(path)
         jpg = QtGui.QPixmap(path).scaled(self.label_in_img.width(), self.label_in_img.height())
         self.label_in_img.setPixmap(jpg)
 
