@@ -23,6 +23,7 @@ class DatabaseVisitor():
         try:
             self._cursor.execute(sql)  # 游标执行
             self._conn.commit()  # 执行完提交
+            print("create table ok")
             return True
         except:
             print("create table error")
