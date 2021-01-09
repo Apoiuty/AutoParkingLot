@@ -3,6 +3,7 @@ from view.login_view import LoginView
 from model.login_model import LoginModel
 from controller import home_controller,society_controller
 from PyQt5.QtWidgets import QApplication, QMainWindow,qApp
+from camera.camera_sim import CameraSimulator
 import sys
 
 class LoginController():
@@ -39,9 +40,9 @@ class LoginController():
     # 控制新的视图出现
     def open_working_windows(self, env_home):
         if env_home == True:
-            self.new_view = home_controller.HomeController()#新控制器负责创建新视图
+            self.new_view = CameraSimulator(home_controller.HomeController())#新控制器负责创建新视图
         else:
-            self.new_view=society_controller.SocietyController()
+            self.new_view=CameraSimulator(society_controller.SocietyController())
 
 if __name__ == '__main__':
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)

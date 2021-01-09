@@ -1,8 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox,QWidget
+from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox
 from PyQt5 import QtCore,QtGui
-from view.society_ui import Ui_society
+from view.pure_ui.society_ui import Ui_society
 import sys
-from PIL import Image
+
 
 class SocietyView(QMainWindow,Ui_society):
     def __init__(self):
