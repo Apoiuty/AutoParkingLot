@@ -41,7 +41,7 @@ def parseOutput(output):
                 maxValue = output[i+j*34+34]
                 index = i
             #print(i+j*34+31)
-        print(index, maxValue)
+        #print(index, maxValue)
         label = label + PLATE_CHARS_LETTER[index]
     return label
 
@@ -87,7 +87,7 @@ def identify_car_plate(path):
     #实例化模型
     model = Net().to(device)
     #加载参数
-    model.load_state_dict(torch.load("D:\Code\Py\Teamwork\AutoParkingLot\cnn\car_plate.pt"))
+    model.load_state_dict(torch.load("..\cnn\car_plate.pt"))
     #推理模式
     model.eval()
     # temp = np.fromfile(PICS_PATH + "/" + label + ".jpg", dtype=np.uint8)
@@ -110,45 +110,3 @@ if __name__ == '__main__':
     # main()
     result = identify_car_plate('../camera/1.jpg')
     print("识别结果是："+result)
-
-
-# def main():
-#     #获取图片列表
-#     pics = os.listdir(PICS_PATH)
-#     #获取CPU
-#     use_cuda = torch.cuda.is_available()
-#     device = torch.device("cuda" if use_cuda else "cpu")
-#     #实例化模型
-#     model = Net().to(device)
-#     #加载参数
-#     model.load_state_dict(torch.load("car_plate.pt"))
-#     #推理模式
-#     model.eval()
-#
-#     right_count = 0
-#     for i in range(len(pics)):
-#         #获取标签
-#         label = pics[i][0:7]
-#         #转换图片至tensor格式
-#         temp = np.fromfile(PICS_PATH + "/" + label + ".jpg", dtype=np.uint8)
-#         img = cv.imdecode(temp, -1)
-#         # img = cv.imread(PICS_PATH + "/" + label + ".jpg")
-#         r, g, b = cv.split(img)
-#         numpy_array = np.array([r, g, b])
-#
-#         img_tensor = torch.from_numpy(numpy_array)
-#         img_tensor = img_tensor.float()
-#         img_tensor = img_tensor.reshape([1, 3, 70, 238])
-#         img_tensor = img_tensor.to(device)
-#         #对车牌的tensor格式的数据进行预测和计算时间
-#         t1 = time()
-#         output = model(img_tensor).cpu()
-#         t2 = time()
-#         #获得预测结果
-#         output_label = parseOutput(output.detach().numpy())
-#         if output_label == label:
-#             right_count += 1
-#         print("label is " + label + " ,network predict is " + output_label+" cost is "+str(t2-t1)+"s")
-#     print(len(pics), right_count)
-#     print("correct rate is " + str(right_count / len(pics)))
-
