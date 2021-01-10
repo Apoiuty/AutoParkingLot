@@ -34,14 +34,12 @@ class carnameLog(QDialog, Ui_LogByCarName):
 
         for i in range(row):
             for j in range(col):
-                item = QStandardItem(str( items[i][j] ))
+                item = QStandardItem(str(items[i][j]))
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
                 model.setItem(i, j, item)
 
-
         self.TableOfCarLog.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.TableOfCarLog.setModel(model)
-
 
 
 if __name__ == "__main__":

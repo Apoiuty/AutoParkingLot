@@ -18,10 +18,7 @@ class Log_Model():
         index = index.strip()
         sql = "SELECT * FROM SocietyHistory WHERE Scar = '%s'" % (index)
         re = self.db.find_all(sql)
-        if re:
-            return re
-        else:
-            return "Found no records."
+        return re
 
     def get_log_data_time(self, data):
         """
@@ -30,14 +27,14 @@ class Log_Model():
         :return:
         """
         data = data.strip()
-        if data.startswith(','):
+        if data.startswith('-'):
             data_begin = '2000-00-00 00:00:00'
             data_end = data[0].strip()
-        elif data.endswith(","):
+        elif data.endswith("-"):
             data_begin = data[0].strip()
             data_end = '2077-06-22 11:11:11'
-        elif ',' in data:
-            data = data.split(',')
+        elif '-' in data:
+            data = data.split('-')
             data_begin = data[0].strip()
             data_end = data[1].strip()
         else:
@@ -49,7 +46,4 @@ class Log_Model():
         re = self.db.find_all(sql_end)
         re += self.db.find_all(sql_begin)
         re = list(set(re))
-        if re:
-            return re
-        else:
-            return "Found no records."
+        return re

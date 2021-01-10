@@ -1,8 +1,11 @@
 from PyQt5 import QtCore
+
+from controller.Car_log_controller import LogController
 from view.society_view import SocietyView
 from model.society_model import SocietyModel
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, qApp
 import sys
+from view.rate_view import rate_view
 
 
 class SocietyController():
@@ -16,6 +19,12 @@ class SocietyController():
         self.rate = 0.05
         # self.identify_in_car()测试用
         # self.identify_out_car()
+
+        # 菜单方法绑定
+        self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
+        self.view.action_7.triggered.connect(lambda: self.Log_menu('time'))
+        self.view.action_9.triggered.connect(lambda: self.Log_menu('owner'))
+        self.view.action_5.triggered.connect(self.Rate_set)
 
     def click_btn_relogin(self):  # 重新登录
         re = self.view.ensure_to_quit()
@@ -36,6 +45,21 @@ class SocietyController():
         self.view.show_out_car(result)  # 改变视图显示
         self.view.show_out_time()
         self.view.show_out_img(path)
+
+    def Rate_set(self):
+        """
+        设置费率文件
+        :return:
+        """
+        rate_set = rate_view('society_rate')
+
+    def Log_menu(self, mode):
+        """
+        日志菜单功能实现
+        :param mode:
+        :return:
+        """
+        log_dialog = LogController(mode)
 
 
 if __name__ == '__main__':
