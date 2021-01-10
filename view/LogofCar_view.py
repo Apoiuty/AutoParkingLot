@@ -1,9 +1,9 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QDialog, QHeaderView
-from PyQt5.QtCore import Qt
 
-from view.LogofCar_ui import Ui_LogByCarName
+from view.pure_ui.LogofCar_ui import Ui_LogByCarName
 
 
 class carnameLog(QDialog, Ui_LogByCarName):

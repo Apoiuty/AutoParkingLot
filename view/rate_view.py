@@ -1,10 +1,9 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QDialog, QHeaderView, QSlider
-from PyQt5.QtCore import Qt
-
-from view.rate_ui import Ui_Rate
 import configparser
+
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QDialog, QSlider
+
+from view.pure_ui.rate_ui import Ui_Rate
 
 
 class rate_view(QDialog, Ui_Rate):
@@ -76,6 +75,6 @@ if __name__ == "__main__":
     import sys
 
     app = QtWidgets.QApplication(sys.argv)
-    ui = rate_view()
+    ui = rate_view('home_society')
     ui.show()
     sys.exit(app.exec_())
