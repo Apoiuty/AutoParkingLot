@@ -1,6 +1,85 @@
+import sys,math
+import re
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
-# from db.operation import DatabaseVisitor
+class MyComboBox(QComboBox) :
+    def __init__(self):
+        super(MyComboBox,self).__init__()
+        self.setAcceptDrops(True)  # A控件可以接受其他拖拽过来的内容
+    def dragEnterEvent(self,e):
+        print(e)
+        if e.mimeData().hasText():  # 拖拽过来如果是文本就接受
+            e.accept()
+        else:
+            e.ignore()
+
+    def dropEvent(self,e):
+        self.addItem(e.mimeData().text())  # 这里的addItem是针对QComboBox
+
+class DrapDropDemo(QWidget):
+    def __init__(self):
+        super(DrapDropDemo,self).__init__()
+        formLayout = QFormLayout()
+        formLayout.addRow(QLabel("请将左边的文本拖拽到右边的下拉列表中"))
+        lineEdit = QLineEdit()
+        lineEdit.setDragEnabled(True)  # 让QLineEdit控件可拖动
+
+        combo = MyComboBox()
+        formLayout.addRow(lineEdit,combo)
+        self.setLayout(formLayout)
+        self.setWindowTitle('拖拽案例')
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    main = DrapDropDemo()
+    main.show()
+    sys.exit(app.exec_())
+import os, sys
+# 可供图片拖拽Label控件
+# class DropLabel(QLabel):
+#     # 1、继承QLabel
+#     # 2、设置自定义信号函数pyqtSignal在使用时默认传递两个参数
+#     def __init__(self, *args, **kwargs):
+#         QLabel.__init__(self, *args, **kwargs)
+#         self.setAcceptDrops(True)
+#         self.dropDown = pyqtSignal(object, str)
 #
+#     def dragEnterEvent(self, event):
+#         if event.mimeData().hasText():
+#             event.acceptProposedAction()
+#
+#     def dropEvent(self, event):
+#         # 一定要使用super，因为程序先看子类方法再去看父类方法,子类方法覆盖了
+#         # 父类方法,会到导致dropEvent()的其他方法无法使用
+#         # event:事件对象
+#         super(DropLabel, self).dropEvent(event)
+#         image = event.mimeData().text()
+#         #image_path = re.sub('^file:///', '', image)
+#         # 图片是放在DropLabel对象内，并不是Qlabel对象
+#         # 3、槽函数，对应 pyqtSignal 信号，这里返回 DropLabel 对象和图片的路径
+#         self.dropDown.emit(self, image)
+#         event.acceptProposedAction()
+#
+# class View(QWidget):
+#     def _setup(self):
+#         # 创建重写的QLabel
+#         self._createLabel()
+#         self.banner1.dropDown.connect(self.ondropDown())
+#
+#
+#     def _createLabel(self):
+#         self.banner1 = DropLabel(self.Widget32)
+#         self.banner1.setObjectName("banner1")
+#         self.verticalLayout_47.addWidget(self.banner1)
+#
+#
+#     def ondropDown(self, _label, _path):
+#         if _path.endswith('.png'):
+#             pixmap = QPixmap(_path)
+#             _label.setScaledContents(True)  # 自适应大小
+#             _label.setPixmap(pixmap)
+
 # # ndbvisitor = DatabaseVisitor()
 # # #sql = "SELECT * FROM User "
 # # sql="SELECT Upassword FROM User WHERE Uname = 'worker01'"

@@ -3,7 +3,7 @@ from PyQt5 import QtCore
 from controller.Car_log_controller import LogController
 from view.society_view import SocietyView
 from model.society_model import SocietyModel
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, qApp
+from PyQt5.QtWidgets import QApplication, qApp
 import sys
 from view.rate_view import rate_view
 
@@ -17,8 +17,6 @@ class SocietyController():
         self.view.show()  # 控制器创建视图
         self.new_view = None
         self.rate = 0.05
-        # self.identify_in_car()测试用
-        # self.identify_out_car()
 
         # 菜单方法绑定
         self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
@@ -34,17 +32,17 @@ class SocietyController():
         else:
             pass
 
-    def identify_in_car(self, path='../camera/1.jpg'):
-        result = self.model.identify_result(path)
+    def identify_in_car(self, img):
+        result = self.model.identify_result(img)
         self.view.show_in_car(result)  # 改变视图显示
         self.view.show_in_time()
-        self.view.show_in_img(path)
+        self.view.show_in_img(img)
 
-    def identify_out_car(self, path='../camera/2.jpg'):
-        result = self.model.identify_result(path)
+    def identify_out_car(self, img):
+        result = self.model.identify_result(img)
         self.view.show_out_car(result)  # 改变视图显示
         self.view.show_out_time()
-        self.view.show_out_img(path)
+        self.view.show_out_img(img)
 
     def Rate_set(self):
         """

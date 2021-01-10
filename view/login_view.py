@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import QtCore
-from view.login_ui import Ui_login
+from view.pure_ui.login_ui import Ui_login
 import sys
 
 
