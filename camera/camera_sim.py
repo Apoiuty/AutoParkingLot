@@ -26,7 +26,10 @@ class MyQlabel(QLabel):
         image = e.mimeData().text()
         image = re.sub('^file:///', '', image)
         #print(image)
-        self.signal.emit(image)#信号发送
+        if '\n' in image:
+            pass
+        else:
+            self.signal.emit(image)#信号发送
 
 
 # 界面
