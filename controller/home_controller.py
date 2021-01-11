@@ -1,10 +1,12 @@
-from PyQt5 import QtCore, QtWidgets
-from view.home_view import HomeView
-from model.home_model import HomeModel
-from controller.Car_log_controller import LogController
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from view.rate_view import rate_view
 import sys
+
+from PyQt5 import QtCore
+from PyQt5.QtWidgets import QApplication
+
+from controller.Car_log_controller import LogController
+from model.home_model import HomeModel
+from view.home_view import HomeView
+from view.rate_view import rate_view
 
 
 class HomeController():
@@ -13,6 +15,7 @@ class HomeController():
         self.model = HomeModel()
         self.view.setupUi(self.view)
         self.view.show()  # 控制器创建视图
+        self.circumstance = 'home'
 
         #     绑定日志按钮
         self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
@@ -26,7 +29,7 @@ class HomeController():
         :param mode:
         :return:
         """
-        log_dialog = LogController(mode)
+        log_dialog = LogController(self.circumstance, mode)
 
     def Rate_set(self):
         """

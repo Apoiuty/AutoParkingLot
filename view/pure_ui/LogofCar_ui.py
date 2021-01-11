@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_LogByCarName(object):
     def setupUi(self, LogByCarName):
         LogByCarName.setObjectName("LogByCarName")
-        LogByCarName.resize(852, 1020)
+        LogByCarName.resize(640, 640)
         LogByCarName.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         LogByCarName.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.gridLayout = QtWidgets.QGridLayout(LogByCarName)

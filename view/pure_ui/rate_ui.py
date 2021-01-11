@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Rate(object):
     def setupUi(self, Rate):
         Rate.setObjectName("Rate")
-        Rate.resize(1136, 88)
+        Rate.resize(640, 88)
         self.gridLayout = QtWidgets.QGridLayout(Rate)
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()

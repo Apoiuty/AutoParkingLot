@@ -1,11 +1,8 @@
-import argparse
 import cv2 as cv
-import torch
 import numpy as np
-import torch.nn.functional as F
+import torch
 import torch.nn as nn
-import os
-from time import time
+import torch.nn.functional as F
 
 PICS_PATH = "../data/test"
 
@@ -13,15 +10,19 @@ INDEX_PROVINCE = {"京": 0, "沪": 1, "津": 2, "渝": 3, "冀": 4, "晋": 5, "�
                   "浙": 11, "皖": 12, "闽": 13, "赣": 14, "鲁": 15, "豫": 16, "鄂": 17, "湘": 18, "粤": 19, "桂": 20,
                   "琼": 21, "川": 22, "贵": 23, "云": 24, "藏": 25, "陕": 26, "甘": 27, "青": 28, "宁": 29, "新": 30}
 
-INDEX_LETTER = {"0": 31, "1": 32, "2": 33, "3": 34, "4": 35, "5": 36, "6": 37, "7": 38, "8": 39, "9": 40, "A": 41, "B": 42, "C": 43, "D": 44, "E": 45, "F": 46, "G": 47,"H": 48, "J": 49, "K": 50, "L": 51, "M": 52,
-                "N": 53, "P": 54, "Q": 55, "R": 56, "S": 57, "T": 58, "U": 59, "V": 60, "W": 61, "X": 62, "Y": 63, "Z": 64}
+INDEX_LETTER = {"0": 31, "1": 32, "2": 33, "3": 34, "4": 35, "5": 36, "6": 37, "7": 38, "8": 39, "9": 40, "A": 41,
+                "B": 42, "C": 43, "D": 44, "E": 45, "F": 46, "G": 47, "H": 48, "J": 49, "K": 50, "L": 51, "M": 52,
+                "N": 53, "P": 54, "Q": 55, "R": 56, "S": 57, "T": 58, "U": 59, "V": 60, "W": 61, "X": 62, "Y": 63,
+                "Z": 64}
 
 PLATE_CHARS_PROVINCE = ["京", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑",
                         "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤",
                         "桂", "琼", "川", "贵", "云", "藏", "陕", "甘", "青", "宁", "新"]
 
-PLATE_CHARS_LETTER = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P",
+PLATE_CHARS_LETTER = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "J",
+                      "K", "L", "M", "N", "P",
                       "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
 
 def parseOutput(output):
     index = 0
@@ -37,13 +38,14 @@ def parseOutput(output):
         index = 0
         maxValue = 0
         for i in range(34):
-            if output[i+j*34+34] > maxValue:
-                maxValue = output[i+j*34+34]
+            if output[i + j * 34 + 34] > maxValue:
+                maxValue = output[i + j * 34 + 34]
                 index = i
-            #print(i+j*34+31)
-        #print(index, maxValue)
+            # print(i+j*34+31)
+        # print(index, maxValue)
         label = label + PLATE_CHARS_LETTER[index]
     return label
+
 
 class Net(torch.nn.Module):
     def __init__(self):
@@ -79,16 +81,19 @@ class Net(torch.nn.Module):
         x = x.view(-1, 238)
         return x
 
+
 '''输入车牌图片路径，输出识别结果'''
+
+
 def identify_car_plate(path):
-     #获取GPU是否可用
+    # 获取GPU是否可用
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
-    #实例化模型
+    # 实例化模型
     model = Net().to(device)
-    #加载参数
-    model.load_state_dict(torch.load("..\cnn\car_plate.pt"))
-    #推理模式
+    # 加载参数
+    model.load_state_dict(torch.load("..\cnn\car_plate.pt", map_location=device))
+    # 推理模式
     model.eval()
     # temp = np.fromfile(PICS_PATH + "/" + label + ".jpg", dtype=np.uint8)
     temp = np.fromfile(path, dtype=np.uint8)
@@ -108,5 +113,5 @@ def identify_car_plate(path):
 
 if __name__ == '__main__':
     # main()
-    result = identify_car_plate('../camera/1.jpg')
-    print("识别结果是："+result)
+    result = identify_car_plate('../camera/云T9SN4H.jpg')
+    print("识别结果是：" + result)

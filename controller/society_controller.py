@@ -1,11 +1,12 @@
+import sys
+
 from PyQt5 import QtCore
+from PyQt5.QtWidgets import QApplication, qApp
 
 from controller.Car_log_controller import LogController
-from view.society_view import SocietyView
 from model.society_model import SocietyModel
-from PyQt5.QtWidgets import QApplication, qApp
-import sys
 from view.rate_view import rate_view
+from view.society_view import SocietyView
 
 
 class SocietyController():
@@ -17,6 +18,7 @@ class SocietyController():
         self.view.show()  # 控制器创建视图
         self.new_view = None
         self.rate = 0.05
+        self.circumstance = 'society'
 
         # 菜单方法绑定
         self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
@@ -57,7 +59,7 @@ class SocietyController():
         :param mode:
         :return:
         """
-        log_dialog = LogController(mode)
+        log_dialog = LogController(self.circumstance, mode)
 
 
 if __name__ == '__main__':
