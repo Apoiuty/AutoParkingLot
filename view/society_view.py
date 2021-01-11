@@ -16,6 +16,9 @@ class SocietyView(QMainWindow,Ui_society):
         else:
             return False
 
+    def msgbox_to_check_handmode_input(self):
+        reply = QMessageBox.question(self, 'Message', '请输入正确车牌号格式')
+
     def show_in_car(self,result):
         self.label_in_car.setText(result)
 
@@ -39,6 +42,39 @@ class SocietyView(QMainWindow,Ui_society):
     def show_out_img(self,path):
         jpg = QtGui.QPixmap(path).scaled(self.label_out_img.width(), self.label_out_img.height())
         self.label_out_img.setPixmap(jpg)
+
+    def open_hand_mode(self):#切换手动模式
+        self.label_in_img.setVisible(False)
+        self.label_out_img.setVisible(False)
+        self.line_handmode_car_in.setVisible(True)#模式切换时让手动模式组件可见
+        self.line_handmode_car_out.setVisible(True)
+        self.btn_handmdoe_out.setVisible(True)
+        self.btn_handmode_in.setVisible(True)
+        self.action_hand_mode.setEnabled(False)#菜单栏显示改变
+        self.action_auto_mode.setEnabled(True)
+
+    def open_auto_mode(self):#切换自动模式
+        self.line_handmode_car_in.setVisible(False)#模式切换时让自动模式组件可见
+        self.line_handmode_car_out.setVisible(False)
+        self.btn_handmdoe_out.setVisible(False)
+        self.btn_handmode_in.setVisible(False)
+        self.label_in_img.setVisible(True)
+        self.label_out_img.setVisible(True)
+        self.action_auto_mode.setEnabled(False)#菜单栏显示改变
+        self.action_hand_mode.setEnabled(True)
+
+    def get_handmode_car_in(self):#手动模式下提供用户输入的接口，屏蔽视图实现细节，被控制器调用
+        return self.line_handmode_car_in.text()
+
+    def get_handmode_car_out(self):
+        return self.line_handmode_car_out.text()
+
+    def clear_input_handmode_car_in(self):#输入后清除输入框，视图自身不调用，被控制器调用
+        self.line_handmode_car_in.setText('')
+
+    def clear_input_handmode_car_out(self):
+        self.line_handmode_car_out.setText('')
+
 
 
 if __name__ == '__main__':
