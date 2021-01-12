@@ -23,8 +23,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>159</x>
-      <y>51</y>
+      <x>153</x>
+      <y>52</y>
       <width>158</width>
       <height>39</height>
      </rect>
@@ -42,8 +42,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>575</x>
-      <y>51</y>
+      <x>568</x>
+      <y>52</y>
       <width>158</width>
       <height>39</height>
      </rect>
@@ -349,6 +349,64 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLineEdit" name="line_handmode_car_in">
+    <property name="geometry">
+     <rect>
+      <x>72</x>
+      <y>153</y>
+      <width>153</width>
+      <height>36</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="line_handmode_car_out">
+    <property name="geometry">
+     <rect>
+      <x>487</x>
+      <y>153</y>
+      <width>153</width>
+      <height>36</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_handmode_in">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>153</y>
+      <width>71</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>输入车牌</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_handmdoe_out">
+    <property name="geometry">
+     <rect>
+      <x>655</x>
+      <y>153</y>
+      <width>71</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>输入车牌</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -428,9 +486,9 @@
     <property name="title">
      <string>模式</string>
     </property>
-    <addaction name="action_11"/>
+    <addaction name="action_hand_mode"/>
     <addaction name="separator"/>
-    <addaction name="action_14"/>
+    <addaction name="action_auto_mode"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_3"/>
@@ -494,12 +552,12 @@
     <string>收费统计</string>
    </property>
   </action>
-  <action name="action_11">
+  <action name="action_hand_mode">
    <property name="text">
     <string>切换到手动模式</string>
    </property>
   </action>
-  <action name="action_14">
+  <action name="action_auto_mode">
    <property name="text">
     <string>切换到自动模式</string>
    </property>
