@@ -43,7 +43,7 @@ class SocietyController():
         car_in=self.view.get_handmode_car_in()
         #print(car_in)
         self.view.clear_input_handmode_car_in()
-        pass#然后进入正常流程，后续流程和自动识别一样
+        self.model.update_data(car_in,0)#0是进入,手动模式无需identify,直接进入update_data
 
     def click_btn_handmode_out(self):#手动模式下输入离开车牌按钮点击的控制
         car_out=self.view.get_handmode_car_out()
@@ -53,7 +53,7 @@ class SocietyController():
 
     def identify_in_car(self, img):
         self.view.show_in_img(img)
-        self.model.identify_result(img, 0)  # 0是进入标志
+        self.model.identify_result(img, 0)  # 0是进入标志,自动模式需identify,再进入update_data
 
     def identify_out_car(self, img):
         self.view.show_out_img(img)
