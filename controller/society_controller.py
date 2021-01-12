@@ -4,16 +4,19 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, qApp
 
 from controller.Car_log_controller import LogController
+from controller.add_admin_controller import AddAdminController
+from controller.delete_admin_controller import DeleteAdminController
 from model.society_model import SocietyModel
 from view.rate_view import rate_view
 from view.society_view import SocietyView
+
 
 class SocietyController():
     def __init__(self):
         self.view = SocietyView()
         self.model = SocietyModel(self.view)
         self.view.setupUi(self.view)
-        self.view.btn_relogin.clicked.connect(lambda: self.click_btn_relogin())#绑定按钮的点击事件
+        self.view.btn_relogin.clicked.connect(lambda: self.click_btn_relogin())  # 绑定按钮的点击事件
         self.view.btn_handmode_in.clicked.connect(lambda: self.click_btn_handmode_in())
         self.view.btn_handmdoe_out.clicked.connect(lambda: self.click_btn_handmode_out())
         self.view.show()  # 控制器创建视图
@@ -31,6 +34,16 @@ class SocietyController():
         self.view.action_hand_mode.triggered.connect(self.open_hand_mode)
         self.view.action_auto_mode.triggered.connect(self.open_auto_mode)
 
+        # 管理员方法绑定
+        self.view.action.triggered.connect(self.add_admin)
+        self.view.action_2.triggered.connect(self.delete_admin)
+
+    def add_admin(self):
+        am = AddAdminController()
+
+    def delete_admin(self):
+        dm = DeleteAdminController()
+
     def click_btn_relogin(self):  # 重新登录点击事件的控制
         re = self.view.ensure_to_quit()
         if re == True:
@@ -39,17 +52,17 @@ class SocietyController():
         else:
             pass
 
-    def click_btn_handmode_in(self):#手动模式下输入进入车牌按钮点击的控制
-        car_in=self.view.get_handmode_car_in()
-        #print(car_in)
+    def click_btn_handmode_in(self):  # 手动模式下输入进入车牌按钮点击的控制
+        car_in = self.view.get_handmode_car_in()
+        # print(car_in)
         self.view.clear_input_handmode_car_in()
-        self.model.update_data(car_in,0)#0是进入,手动模式无需identify,直接进入update_data
+        self.model.update_data(car_in, 0)  # 0是进入,手动模式无需identify,直接进入update_data
 
-    def click_btn_handmode_out(self):#手动模式下输入离开车牌按钮点击的控制
-        car_out=self.view.get_handmode_car_out()
-        #print(car_out)
+    def click_btn_handmode_out(self):  # 手动模式下输入离开车牌按钮点击的控制
+        car_out = self.view.get_handmode_car_out()
+        # print(car_out)
         self.view.clear_input_handmode_car_out()
-        pass#然后进入正常流程，后续流程和自动识别一样
+        pass  # 然后进入正常流程，后续流程和自动识别一样
 
     def identify_in_car(self, img):
         self.view.show_in_img(img)
@@ -59,7 +72,7 @@ class SocietyController():
         self.view.show_out_img(img)
         self.model.identify_result(img, 1)  # 1是出标志
 
-    def open_hand_mode(self):#菜单栏触发的模式切换，改变视图组件显示
+    def open_hand_mode(self):  # 菜单栏触发的模式切换，改变视图组件显示
         self.view.open_hand_mode()
 
     def open_auto_mode(self):
