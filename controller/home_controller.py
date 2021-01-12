@@ -7,6 +7,15 @@ from controller.Car_log_controller import LogController
 from model.home_model import HomeModel
 from view.home_view import HomeView
 from view.rate_view import rate_view
+from controller.add_admin_controller import AddAdminController
+from controller.delete_admin_controller import DeleteAdminController
+from PyQt5 import QtCore
+from view.home_view import HomeView
+from model.home_model import HomeModel
+from PyQt5.QtWidgets import QApplication, QMainWindow
+import sys
+from controller.add_admin_controller import AddAdminController
+from controller.delete_admin_controller import DeleteAdminController
 
 
 class HomeController():
@@ -37,6 +46,15 @@ class HomeController():
         :return:
         """
         rate_set = rate_view('home_rate')
+
+        self.view.action.triggered.connect(self.add_admin)
+        self.view.action_2.triggered.connect(self.delete_admin)
+
+    def add_admin(self):
+        am = AddAdminController()
+
+    def delete_admin(self):
+        dm = DeleteAdminController()
 
 
 if __name__ == '__main__':
