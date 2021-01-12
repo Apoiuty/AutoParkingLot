@@ -15,26 +15,47 @@ if __name__ == '__main__':
     conn.commit()
     conn.close()  #
     dbvisitor = DatabaseVisitor()
-    # # #创建小区停车场——历史停车表，当前停车表暂不需要
+    #创建小区停车场——历史停车记录表
+    # 一个车多次出入，所以主属性是序号自增
+    # 小区不要求society一样进出成对收费，因此一个Hinout标志位（in/out)标志进还是出
+    # Htime自动插入当前时间，sql插入时无需单独写入Htime属性，但需要写Hinout
+    # Hno，记录序号，sql插入时也无需写入Hno属性，他自动递增
+    # Hcar车牌号
+    # Hinout进或者出标志，将决定Htime含义
+    # Htime自动插入，sql插入时也无需写入Hno属性
     # sql = '''CREATE TABLE HomeHistory
     #    (Hno INTEGER PRIMARY KEY,
     #    Hcar VARCHAR(10) ,
-    #    Hin TIMESTAMP NOT NULL DEFAULT(datetime('now', 'localtime')) ,
-    #    Hout TIMESTAMP NULL ,
+    #    Hinout VARCHAR(5),
+    #    Htime TIMESTAMP NOT NULL DEFAULT(datetime('now', 'localtime')))'''
+    # dbvisitor.create_table(sql)
+    # # 创建小区停车-车辆信息表
+    # # 以车辆为主属性
+    # # Hcarport车位
+    # # Howner车主名
+    # # Hownerhouse车主住所
+    # # Hownerphone车主电话
+    # # Hownerkind车主类型：租户或者常住之类的
+    # sql = '''CREATE TABLE HomeCar
+    #    (Hcar VARCHAR(10) PRIMARY KEY,
+    #    Hcarport VARCHAR(10),
     #    Howner VARCHAR(10),
-    #    Hplace VARCHAR(10),
+    #    Hownerhouse VARCHAR(25),
+    #    Hownerphone VARCHAR(11),
     #    Hownerkind VARCHAR(10))'''
     # dbvisitor.create_table(sql)
-    # # 创建社会车场-历史停车表
+    # # 创建社会车场-历史停车记录表
+    # #Sno 自动递增主属性，无需sql插入单独写入
     # sql = '''CREATE TABLE SocietyHistory
     #    (Sno INTEGER PRIMARY KEY,
     #    Scar VARCHAR(10)  ,
-    #    Sin TIMESTAMP NOT NULL DEFAULT(datetime('now', 'localtime')) ,
+    #    Sin TIMESTAMP NULL ,
     #    Sout TIMESTAMP NULL ,
     #    Sfee FLOAT,
     #    Srate FLOAT)'''
     # dbvisitor.create_table(sql)
-    # # 创建社会车场-当前停车表
+    # # 创建社会车场-当前停车表（待计费，出去计费后，一次停车完成才写入历史停车记录表SocietyHistory)
+    # #Sin 自动插入离开时间，无需sql插入单独写入
     # sql = '''CREATE TABLE SocietyCurrent
     #    (Scar VARCHAR(10) PRIMARY KEY ,
     #    Sin TIMESTAMP NOT NULL DEFAULT(datetime('now', 'localtime')),
@@ -47,33 +68,44 @@ if __name__ == '__main__':
     #    Urank INT,
     #    Uphone VARCHAR(15))'''
     # dbvisitor.create_table(sql)
-    # # 插入数据测试
+    # #插入数据测试
     # sql = '''INSERT INTO User (Uname,Upassword,Urank,Uphone)
-    #         VALUES ('worker01', 'password', 5, '12932277777')'''
+    #         VALUES ('worker', 'passwo', 5, '12932277777')'''
     # dbvisitor.update(sql)
-    # sql = '''INSERT INTO HomeHistory (Hcar,Howner,Hout,Hplace)
-    #             VALUES ('苏Q00010', '马某','2021-01-08 20:56:02','A06')'''
+    # sql = '''INSERT INTO HomeHistory (Hcar,Hinout)
+    #             VALUES ('苏Q00011', 'in')'''
     # dbvisitor.update(sql)
-    # sql = '''INSERT INTO SocietyHistory (Scar,Sfee,Sout,Srate)
-    #             VALUES ('苏Q00004', 25, '2021-01-08 22:56:02',0.05)'''
+    # sql = '''INSERT INTO HomeCar (Hcar,Hcarport,Howner,Hownerhouse,Hownerphone,Hownerkind)
+    #                 VALUES ('苏Q00012', 'A08','马某','12-3-501','13963363333','租户')'''
     # dbvisitor.update(sql)
-    # sql = '''INSERT INTO SocietyCurrent (Scar,Srate)
-    #             VALUES ('苏Q00008', 0.05)'''
+    # sql = '''INSERT INTO SocietyHistory (Scar,Sfee,Sin,Sout,Srate)
+    #             VALUES ('苏Q00002', 25,'2021-01-11 20:56:02', '2021-01-12 22:56:02',0.05)'''
     # dbvisitor.update(sql)
+    sql = '''INSERT INTO SocietyCurrent (Scar,Srate)
+                VALUES ('苏Q00009', 0.05)'''
+    dbvisitor.update(sql)
 
     # 查看
     sql = "SELECT * FROM User"
     result = dbvisitor.find_all(sql)
     print('User')
     print_result(result)
+
     sql = "SELECT * FROM HomeHistory"
     result = dbvisitor.find_all(sql)
     print('HomeHistory')
     print_result(result)
+
+    sql = "SELECT * FROM HomeCar"
+    result = dbvisitor.find_all(sql)
+    print('HomeCar')
+    print_result(result)
+
     sql = "SELECT * FROM SocietyHistory"
     result = dbvisitor.find_all(sql)
     print('SocietyHistory')
     print_result(result)
+
     sql = "SELECT * FROM SocietyCurrent"
     result = dbvisitor.find_all(sql)
     print('SocietyCurrent')
