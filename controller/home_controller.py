@@ -3,25 +3,16 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
 
-from controller.Car_log_controller import LogController
+from controller.society_controller import SocietyController
 from model.home_model import HomeModel
 from view.home_view import HomeView
 from view.rate_view import rate_view
-from controller.add_admin_controller import AddAdminController
-from controller.delete_admin_controller import DeleteAdminController
-from PyQt5 import QtCore
-from view.home_view import HomeView
-from model.home_model import HomeModel
-from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
-from controller.add_admin_controller import AddAdminController
-from controller.delete_admin_controller import DeleteAdminController
 
 
-class HomeController():
+class HomeController(SocietyController):
     def __init__(self):
         self.view = HomeView()
-        self.model = HomeModel()
+        self.model = HomeModel(self.view)
         self.view.setupUi(self.view)
         self.view.show()  # 控制器创建视图
         self.circumstance = 'home'
@@ -32,13 +23,18 @@ class HomeController():
         self.view.action_9.triggered.connect(lambda: self.Log_menu('owner'))
         self.view.action_12.triggered.connect(self.Rate_set)
 
-    def Log_menu(self, mode):
+        # 管理员方法绑定
+        self.view.action.triggered.connect(self.add_admin)
+        self.view.action_2.triggered.connect(self.delete_admin)
+        # 退出按钮绑定
+        self.view.pushButton.clicked.connect(self.exit)
+
+    def exit(self):
         """
-        日志菜单功能实现
-        :param mode:
+        退出按钮绑定
         :return:
         """
-        log_dialog = LogController(self.circumstance, mode)
+        sys.exit(self.view)
 
     def Rate_set(self):
         """
@@ -46,15 +42,6 @@ class HomeController():
         :return:
         """
         rate_set = rate_view('home_rate')
-
-        self.view.action.triggered.connect(self.add_admin)
-        self.view.action_2.triggered.connect(self.delete_admin)
-
-    def add_admin(self):
-        am = AddAdminController()
-
-    def delete_admin(self):
-        dm = DeleteAdminController()
 
 
 if __name__ == '__main__':

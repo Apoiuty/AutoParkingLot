@@ -6,7 +6,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QLabel
 
-from controller.society_controller import SocietyController
+from controller.home_controller import HomeController
 
 
 # 自定义的标签组件，支持拖拽模拟摄像头
@@ -107,6 +107,6 @@ class CameraSimulator(QWidget, Ui_camera):
 if __name__ == '__main__':
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     app = QApplication(sys.argv)  # 创建 Application 实例 app
-    window = CameraSimulator(SocietyController())
+    window = CameraSimulator(HomeController())
     window.show()  # 显示窗口
     sys.exit(app.exec_())

@@ -33,13 +33,24 @@ class carnameLog(QDialog, Ui_LogByCarName):
             self.message.warning(self, "提示", "未找到日志记录", QMessageBox.Yes)
             return
 
-        items = [i[1:-1] for i in items]
+        if circu == "society":
+            items = [i[1:-1] for i in items]
+        elif circu == 'home':
+            items = [[i[1]] + [i[-2]] + [i[-1]] for i in items]
+        else:
+            pass
+
         row = len(items)
         col = len(items[0])
 
         model = QStandardItemModel(row, col)
 
-        table_head = ['车牌', '进入时间', '离去时间', '收费']
+        if circu == 'society':
+            table_head = ['车牌', '进入时间', '离去时间', '收费']
+        elif circu == 'home':
+            table_head = ["车牌", "进入时间", "离开时间"]
+        else:
+            table_head = ["车位", "车主", "车主住所", "车主名", "车主电话", "车主类型"]
         model.setHorizontalHeaderLabels(table_head)
 
         for i in range(row):

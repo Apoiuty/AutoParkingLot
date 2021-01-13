@@ -52,26 +52,6 @@
      <string>车辆出口</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>96</y>
-      <width>283</width>
-      <height>228</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QGraphicsView" name="graphicsView_2">
-    <property name="geometry">
-     <rect>
-      <x>467</x>
-      <y>96</y>
-      <width>283</width>
-      <height>228</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -115,7 +95,7 @@
      <rect>
       <x>55</x>
       <y>398</y>
-      <width>73</width>
+      <width>311</width>
       <height>38</height>
      </rect>
     </property>
@@ -134,7 +114,7 @@
      <rect>
       <x>54</x>
       <y>452</y>
-      <width>73</width>
+         <width>311</width>
       <height>38</height>
      </rect>
     </property>
@@ -153,7 +133,7 @@
      <rect>
       <x>473</x>
       <y>398</y>
-      <width>73</width>
+         <width>301</width>
       <height>38</height>
      </rect>
     </property>
@@ -191,20 +171,52 @@
      <rect>
       <x>472</x>
       <y>452</y>
-      <width>73</width>
+         <width>301</width>
       <height>38</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>车辆信息：</string>
-    </property>
+       <property name="font">
+           <font>
+               <family>Arial</family>
+               <pointsize>12</pointsize>
+           </font>
+       </property>
+       <property name="text">
+           <string>车辆信息：</string>
+       </property>
    </widget>
+      <widget class="QLabel" name="label_8">
+          <property name="geometry">
+              <rect>
+                  <x>100</x>
+                  <y>130</y>
+                  <width>231</width>
+                  <height>111</height>
+              </rect>
+          </property>
+          <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+              <string/>
+          </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+          <property name="geometry">
+              <rect>
+                  <x>510</x>
+                  <y>130</y>
+                  <width>231</width>
+                  <height>111</height>
+              </rect>
+          </property>
+          <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+              <string/>
+          </property>
+      </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -212,7 +224,7 @@
      <x>0</x>
      <y>0</y>
      <width>802</width>
-     <height>19</height>
+        <height>29</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -228,12 +240,12 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="geometry">
-     <rect>
-      <x>172</x>
-      <y>105</y>
-      <width>102</width>
-      <height>107</height>
-     </rect>
+        <rect>
+            <x>890</x>
+            <y>334</y>
+            <width>147</width>
+            <height>159</height>
+        </rect>
     </property>
     <property name="font">
      <font>

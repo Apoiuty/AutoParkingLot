@@ -74,13 +74,21 @@ class SocietyModel():
         return True
 
     def notify_observer_result_condition(self, result_msg, flag, fee):
-        if flag == 0:  # 车辆进入识别
-            self.observer.show_in_car(result_msg)
-            self.observer.show_in_time()
+
+        if fee != -1:
+            # 用fee来识别home还是society
+            if flag == 0:  # 车辆进入识别
+                self.observer.show_in_car(result_msg)
+                self.observer.show_in_time()
+            else:
+                self.observer.show_out_car(result_msg)
+                self.observer.show_out_time()
+                self.observer.show_out_fee(fee)
         else:
-            self.observer.show_out_car(result_msg)
-            self.observer.show_out_time()
-            self.observer.show_out_fee(fee)
+            if flag == 0:
+                self.observer.show_in_car(result_msg)
+            else:
+                self.observer.show_out_car(result_msg)
 
     def get_rate(self):  # 获得当前费率
         self.config.read('../config.ini', encoding='utf-8')

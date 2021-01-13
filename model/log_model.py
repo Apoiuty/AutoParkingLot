@@ -59,7 +59,7 @@ class Log_Model():
         self.observer.set_tabel(re, circu)
 
     def get_log_data_owner(self, index):
-        sql = "SELECT * FROM HomeSociety WHERE Howner = '{0}' ".format(index)
+        sql = "SELECT * FROM HomeCar WHERE Howner = '{0}' ".format(index)
         re = self.db.find_all(sql)
         re = list(set(re))
-        self.observer.set_tabel(re, 'home')
+        self.observer.set_tabel(re, 'home_owner')
