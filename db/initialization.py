@@ -76,8 +76,8 @@ if __name__ == '__main__':
     # sql = '''INSERT INTO User (Uname,Upassword,Urank,Uphone)
     #         VALUES ('worker', 'passwo', 5, '12932277777')'''
     # dbvisitor.update(sql)
-    # sql = '''INSERT INTO HomeHistory (Hcar,Hinout)
-    #             VALUES ('苏Q00011', 'in')'''
+    # sql = '''INSERT INTO HomeHistory (Hcar,Hflag,Hin,Hout)
+    #             VALUES ('苏Q00012', 1,'2021-01-15 20:56:02', '2021-01-15 22:56:02')'''
     # dbvisitor.update(sql)
     # sql = '''INSERT INTO HomeCar (Hcar,Hcarport,Howner,Hownerhouse,Hownerphone,Hownerkind)
     #                 VALUES ('苏Q00012', 'A08','马某','12-3-501','13963363333','租户')'''
