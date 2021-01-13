@@ -1,5 +1,6 @@
-from db.operation import DatabaseVisitor
 import sqlite3
+
+from db.operation import DatabaseVisitor
 
 
 def print_result(result):
@@ -47,12 +48,12 @@ if __name__ == '__main__':
     # # 创建社会车场-历史停车记录表
     # #Sno 自动递增主属性，无需sql插入单独写入
     # sql = '''CREATE TABLE SocietyHistory
-    #    (Sno INTEGER PRIMARY KEY,
-    #    Scar VARCHAR(10)  ,
-    #    Sin TIMESTAMP NULL ,
-    #    Sout TIMESTAMP NULL ,
-    #    Sfee FLOAT,
-    #    Srate FLOAT)'''
+    #    (Sno INTEGER PRIMARY KEY,0
+    #    Scar VARCHAR(10)  ,1
+    #    Sin TIMESTAMP NULL ,2
+    #    Sout TIMESTAMP NULL ,3
+    #    Sfee FLOAT,4
+    #    Srate FLOAT)'''5
     # dbvisitor.create_table(sql)
     # # 创建社会车场-当前停车表（待计费，出去计费后，一次停车完成才写入历史停车记录表SocietyHistory)
     # #Sin 自动插入离开时间，无需sql插入单独写入

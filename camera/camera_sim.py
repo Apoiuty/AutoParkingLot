@@ -1,11 +1,12 @@
-from PyQt5.QtGui import QPixmap
 import re
-from controller.society_controller import SocietyController
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import QLabel
 import sys
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QLabel
+
+from controller.society_controller import SocietyController
 
 
 # 自定义的标签组件，支持拖拽模拟摄像头
@@ -25,11 +26,11 @@ class MyQlabel(QLabel):
     def dropEvent(self, e):
         image = e.mimeData().text()
         image = re.sub('^file:///', '', image)
-        #print(image)
+        # print(image)
         if '\n' in image:
             pass
         else:
-            self.signal.emit(image)#信号发送
+            self.signal.emit(image)  # 信号发送
 
 
 # 界面

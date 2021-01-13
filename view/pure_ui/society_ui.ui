@@ -101,7 +101,7 @@
      <rect>
       <x>51</x>
       <y>322</y>
-      <width>73</width>
+      <width>101</width>
       <height>38</height>
      </rect>
     </property>
@@ -120,7 +120,7 @@
      <rect>
       <x>51</x>
       <y>376</y>
-      <width>73</width>
+         <width>101</width>
       <height>38</height>
      </rect>
     </property>
@@ -139,7 +139,7 @@
      <rect>
       <x>469</x>
       <y>322</y>
-      <width>73</width>
+         <width>101</width>
       <height>38</height>
      </rect>
     </property>
@@ -177,7 +177,7 @@
      <rect>
       <x>469</x>
       <y>376</y>
-      <width>73</width>
+         <width>101</width>
       <height>38</height>
      </rect>
     </property>
@@ -196,7 +196,7 @@
      <rect>
       <x>469</x>
       <y>424</y>
-      <width>73</width>
+         <width>101</width>
       <height>38</height>
      </rect>
     </property>
@@ -212,12 +212,12 @@
    </widget>
    <widget class="QLabel" name="label_in_car">
     <property name="geometry">
-     <rect>
-      <x>136</x>
-      <y>322</y>
-      <width>195</width>
-      <height>38</height>
-     </rect>
+        <rect>
+            <x>140</x>
+            <y>320</y>
+            <width>281</width>
+            <height>38</height>
+        </rect>
     </property>
     <property name="font">
      <font>
@@ -231,12 +231,12 @@
    </widget>
    <widget class="QLabel" name="label_in_time">
     <property name="geometry">
-     <rect>
-      <x>135</x>
-      <y>376</y>
-      <width>173</width>
-      <height>38</height>
-     </rect>
+        <rect>
+            <x>140</x>
+            <y>380</y>
+            <width>261</width>
+            <height>38</height>
+        </rect>
     </property>
     <property name="font">
      <font>
@@ -250,12 +250,12 @@
    </widget>
    <widget class="QLabel" name="label_out_car">
     <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>322</y>
-      <width>177</width>
-      <height>38</height>
-     </rect>
+        <rect>
+            <x>570</x>
+            <y>320</y>
+            <width>221</width>
+            <height>38</height>
+        </rect>
     </property>
     <property name="font">
      <font>
@@ -269,12 +269,12 @@
    </widget>
    <widget class="QLabel" name="label_fee">
     <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>424</y>
-      <width>192</width>
-      <height>38</height>
-     </rect>
+        <rect>
+            <x>560</x>
+            <y>430</y>
+            <width>231</width>
+            <height>38</height>
+        </rect>
     </property>
     <property name="font">
      <font>
@@ -288,12 +288,12 @@
    </widget>
    <widget class="QLabel" name="label_out_time">
     <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>376</y>
-      <width>190</width>
-      <height>38</height>
-     </rect>
+        <rect>
+            <x>560</x>
+            <y>380</y>
+            <width>221</width>
+            <height>38</height>
+        </rect>
     </property>
     <property name="font">
      <font>
@@ -414,7 +414,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>18</height>
+        <height>26</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -430,12 +430,12 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="geometry">
-     <rect>
-      <x>169</x>
-      <y>99</y>
-      <width>102</width>
-      <height>90</height>
-     </rect>
+        <rect>
+            <x>169</x>
+            <y>99</y>
+            <width>147</width>
+            <height>132</height>
+        </rect>
     </property>
     <property name="font">
      <font>
