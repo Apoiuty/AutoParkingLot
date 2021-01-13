@@ -16,20 +16,24 @@ if __name__ == '__main__':
     conn.commit()
     conn.close()  #
     dbvisitor = DatabaseVisitor()
-    #创建小区停车场——历史停车记录表
+    #删除表
+    # sql='''DROP TABLE HomeHistory'''
+    # dbvisitor.drop_table(sql)
+
+    # 创建小区停车场——历史停车记录表
     # 一个车多次出入，所以主属性是序号自增
-    # 小区不要求society一样进出成对收费，因此一个Hinout标志位（in/out)标志进还是出
-    # Htime自动插入当前时间，sql插入时无需单独写入Htime属性，但需要写Hinout
     # Hno，记录序号，sql插入时也无需写入Hno属性，他自动递增
     # Hcar车牌号
-    # Hinout进或者出标志，将决定Htime含义
-    # Htime自动插入，sql插入时也无需写入Hno属性
+    # Hflag未完成标志
+
     # sql = '''CREATE TABLE HomeHistory
     #    (Hno INTEGER PRIMARY KEY,
     #    Hcar VARCHAR(10) ,
-    #    Hinout VARCHAR(5),
-    #    Htime TIMESTAMP NOT NULL DEFAULT(datetime('now', 'localtime')))'''
+    #    Hflag INTEGER,
+    #    Hin TIMESTAMP NULL,
+    #    Hout TIMESTAMP NULL)'''
     # dbvisitor.create_table(sql)
+
     # # 创建小区停车-车辆信息表
     # # 以车辆为主属性
     # # Hcarport车位
@@ -73,8 +77,8 @@ if __name__ == '__main__':
     # sql = '''INSERT INTO User (Uname,Upassword,Urank,Uphone)
     #         VALUES ('worker', 'passwo', 5, '12932277777')'''
     # dbvisitor.update(sql)
-    # sql = '''INSERT INTO HomeHistory (Hcar,Hinout)
-    #             VALUES ('苏Q00011', 'in')'''
+    # sql = '''INSERT INTO HomeHistory (Hcar,Hflag,Hin,Hout)
+    #             VALUES ('苏Q00012', 1,'2021-01-15 20:56:02', '2021-01-15 22:56:02')'''
     # dbvisitor.update(sql)
     # sql = '''INSERT INTO HomeCar (Hcar,Hcarport,Howner,Hownerhouse,Hownerphone,Hownerkind)
     #                 VALUES ('苏Q00012', 'A08','马某','12-3-501','13963363333','租户')'''
@@ -82,9 +86,10 @@ if __name__ == '__main__':
     # sql = '''INSERT INTO SocietyHistory (Scar,Sfee,Sin,Sout,Srate)
     #             VALUES ('苏Q00002', 25,'2021-01-11 20:56:02', '2021-01-12 22:56:02',0.05)'''
     # dbvisitor.update(sql)
-    sql = '''INSERT INTO SocietyCurrent (Scar,Srate)
-                VALUES ('苏Q00009', 0.05)'''
-    dbvisitor.update(sql)
+    # sql = '''INSERT INTO SocietyCurrent (Scar,Srate)
+    #             VALUES ('苏Q00009', 0.05)'''
+    # dbvisitor.update(sql)
+
 
     # 查看
     sql = "SELECT * FROM User"
