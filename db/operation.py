@@ -36,10 +36,9 @@ class DatabaseVisitor():
     def drop_table(self, sql):
         self.connect()
         try:
-            if 'DELETE' in sql.upper():
-                self._cursor.execute(sql)
-                self._conn.commit()
-                return True
+            self._cursor.execute(sql)
+            self._conn.commit()
+            return True
         except:
             print('drop_table error')
             return False
