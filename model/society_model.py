@@ -76,13 +76,11 @@ class SocietyModel():
     def notify_observer_result_condition(self, result_msg, flag, fee):
 
         if fee != -1:
-            # 用fee来识别home还是society
+            # 用fee来识别home还是society;-1为home
             if flag == 0:  # 车辆进入识别
                 self.observer.show_in_car(result_msg)
-                self.observer.show_in_time()
             else:
                 self.observer.show_out_car(result_msg)
-                self.observer.show_out_time()
                 self.observer.show_out_fee(fee)
         else:
             if flag == 0:

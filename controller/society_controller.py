@@ -62,7 +62,7 @@ class SocietyController():
         car_out = self.view.get_handmode_car_out()
         # print(car_out)
         self.view.clear_input_handmode_car_out()
-        pass  # 然后进入正常流程，后续流程和自动识别一样
+        self.model.update_data(car_out, 1)
 
     def identify_in_car(self, img):
         self.view.show_in_img(img)

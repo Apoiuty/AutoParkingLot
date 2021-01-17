@@ -101,7 +101,7 @@
      <rect>
       <x>51</x>
       <y>322</y>
-      <width>101</width>
+      <width>341</width>
       <height>38</height>
      </rect>
     </property>
@@ -120,7 +120,7 @@
      <rect>
       <x>51</x>
       <y>376</y>
-         <width>101</width>
+      <width>361</width>
       <height>38</height>
      </rect>
     </property>
@@ -139,7 +139,7 @@
      <rect>
       <x>469</x>
       <y>322</y>
-         <width>101</width>
+      <width>301</width>
       <height>38</height>
      </rect>
     </property>
@@ -177,7 +177,7 @@
      <rect>
       <x>469</x>
       <y>376</y>
-         <width>101</width>
+      <width>311</width>
       <height>38</height>
      </rect>
     </property>
@@ -196,7 +196,7 @@
      <rect>
       <x>469</x>
       <y>424</y>
-         <width>101</width>
+      <width>311</width>
       <height>38</height>
      </rect>
     </property>
@@ -212,12 +212,12 @@
    </widget>
    <widget class="QLabel" name="label_in_car">
     <property name="geometry">
-        <rect>
-            <x>140</x>
-            <y>320</y>
-            <width>281</width>
-            <height>38</height>
-        </rect>
+     <rect>
+      <x>140</x>
+      <y>320</y>
+      <width>281</width>
+      <height>38</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -231,12 +231,12 @@
    </widget>
    <widget class="QLabel" name="label_in_time">
     <property name="geometry">
-        <rect>
-            <x>140</x>
-            <y>380</y>
-            <width>261</width>
-            <height>38</height>
-        </rect>
+     <rect>
+      <x>140</x>
+      <y>380</y>
+      <width>261</width>
+      <height>38</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -250,12 +250,12 @@
    </widget>
    <widget class="QLabel" name="label_out_car">
     <property name="geometry">
-        <rect>
-            <x>570</x>
-            <y>320</y>
-            <width>221</width>
-            <height>38</height>
-        </rect>
+     <rect>
+      <x>560</x>
+      <y>320</y>
+      <width>221</width>
+      <height>38</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -269,12 +269,12 @@
    </widget>
    <widget class="QLabel" name="label_fee">
     <property name="geometry">
-        <rect>
-            <x>560</x>
-            <y>430</y>
-            <width>231</width>
-            <height>38</height>
-        </rect>
+     <rect>
+      <x>560</x>
+      <y>420</y>
+      <width>231</width>
+      <height>38</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -288,12 +288,12 @@
    </widget>
    <widget class="QLabel" name="label_out_time">
     <property name="geometry">
-        <rect>
-            <x>560</x>
-            <y>380</y>
-            <width>221</width>
-            <height>38</height>
-        </rect>
+     <rect>
+      <x>560</x>
+      <y>370</y>
+      <width>221</width>
+      <height>38</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -407,6 +407,27 @@
      <string>输入车牌</string>
     </property>
    </widget>
+   <zorder>label_in_car</zorder>
+   <zorder>label_in_time</zorder>
+   <zorder>label_out_car</zorder>
+   <zorder>label_out_time</zorder>
+   <zorder>label_fee</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>btn_relogin</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_in_img</zorder>
+   <zorder>label_out_img</zorder>
+   <zorder>line_handmode_car_in</zorder>
+   <zorder>line_handmode_car_out</zorder>
+   <zorder>btn_handmode_in</zorder>
+   <zorder>btn_handmdoe_out</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -414,7 +435,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-        <height>26</height>
+     <height>26</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -430,12 +451,12 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="geometry">
-        <rect>
-            <x>169</x>
-            <y>99</y>
-            <width>147</width>
-            <height>132</height>
-        </rect>
+     <rect>
+      <x>169</x>
+      <y>99</y>
+      <width>147</width>
+      <height>132</height>
+     </rect>
     </property>
     <property name="font">
      <font>
@@ -475,7 +496,6 @@
     </property>
     <addaction name="action_5"/>
     <addaction name="separator"/>
-    <addaction name="action_8"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="font">

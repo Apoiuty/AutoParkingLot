@@ -1,4 +1,5 @@
 import sys
+from datetime import datetime
 
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
@@ -22,10 +23,12 @@ class SocietyView(QMainWindow, Ui_society):
         reply = QMessageBox.question(self, 'Message', '请输入正确车牌号格式', QMessageBox.Yes, QMessageBox.Yes)
 
     def show_in_car(self, result):
-        self.label_in_car.setText(result)
+        self.label_4.setText("车牌号码: " + result)
+        self.label_5.setText("进入时间：" + str(datetime.now())[:-7])
 
     def show_out_car(self, result):
-        self.label_out_car.setText(result)
+        self.label_6.setText("车牌号码: " + result)
+        self.label_9.setText("离家时间：" + str(datetime.now())[:-7])
 
     def show_in_time(self):
         time = QtCore.QDateTime.currentDateTime()
@@ -43,7 +46,7 @@ class SocietyView(QMainWindow, Ui_society):
         :param fee:
         :return:
         """
-        self.label_fee.setText(str(fee))
+        self.label_10.setText("应收费用：" + str(fee))
 
     def show_in_img(self, path):
         jpg = QtGui.QPixmap(path).scaled(self.label_in_img.width(), self.label_in_img.height())

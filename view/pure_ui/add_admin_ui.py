@@ -56,7 +56,7 @@ class Ui_add_admin(object):
 
     def retranslateUi(self, add_admin):
         _translate = QtCore.QCoreApplication.translate
-        add_admin.setWindowTitle(_translate("add_admin", "增加管理员"))
+        add_admin.setWindowTitle(_translate("add_admin", "新建管理员"))
         self.label.setText(_translate("add_admin", "用户名："))
         self.label_2.setText(_translate("add_admin", "密码："))
         self.label_3.setText(_translate("add_admin", "等级："))

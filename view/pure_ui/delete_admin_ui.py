@@ -30,6 +30,6 @@ class Ui_delete_admin(object):
 
     def retranslateUi(self, delete_admin):
         _translate = QtCore.QCoreApplication.translate
-        delete_admin.setWindowTitle(_translate("delete_admin", "Form"))
+        delete_admin.setWindowTitle(_translate("delete_admin", "删除管理员"))
         self.label.setText(_translate("delete_admin", "输入删除的账号："))
         self.cut.setText(_translate("delete_admin", "删除"))
