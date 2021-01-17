@@ -7,6 +7,7 @@ from controller.society_controller import SocietyController
 from model.home_model import HomeModel
 from view.home_view import HomeView
 from view.rate_view import rate_view
+from controller.add_car_owner_controller import Car_owner_contrl
 
 
 class HomeController(SocietyController):
@@ -28,6 +29,15 @@ class HomeController(SocietyController):
         self.view.action_2.triggered.connect(self.delete_admin)
         # 退出按钮绑定
         self.view.pushButton.clicked.connect(self.exit)
+        #     添加信息补录菜单
+        self.view.action_3.triggered.connect(self.add_owner)
+
+    def add_owner(self):
+        """
+        信息补录
+        :return:
+        """
+        control = Car_owner_contrl()
 
     def exit(self):
         """
