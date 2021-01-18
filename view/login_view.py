@@ -8,6 +8,7 @@ class LoginView(QMainWindow, Ui_login):
     """
     Login窗口类
     """
+
     def __init__(self):
         super(LoginView, self).__init__()
         self.setupUi(self)
@@ -50,4 +51,3 @@ if __name__ == '__main__':
     window = LoginView()
     window.show()  # 显示窗口
     sys.exit(app.exec_())
-

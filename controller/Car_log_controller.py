@@ -48,8 +48,10 @@ class LogController():
         # 获取输入信息并查询项目
         if self.mode == 'plate':
             self.model.get_log_data_plate(query_item, self.circumstance)
-        else:
+        elif self.mode == 'home':
             self.model.get_log_data_time(query_item, self.circumstance)
+        else:
+            self.model.get_log_data_owner(query_item)
 
 
 if __name__ == '__main__':

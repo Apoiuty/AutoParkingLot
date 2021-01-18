@@ -1,18 +1,19 @@
 from PyQt5 import QtCore
 from view.add_admin_view import AddAdminView
 from model.add_admin_model import AddAdminModel
-from PyQt5.QtWidgets import QApplication, QMainWindow,qApp
+from PyQt5.QtWidgets import QApplication, QMainWindow, qApp
 import sys
+
 
 class AddAdminController():
     def __init__(self):
         self.view = AddAdminView()
         self.model = AddAdminModel()
         self.view.setupUi(self.view)
-        #绑定函数
+        # 绑定函数
         self.view.add.clicked.connect(lambda: self.click_add())
         self.view.show()  # 控制器创建视图
-        self.new_view=None
+        self.new_view = None
 
     # 登录控制
     def click_add(self):
@@ -22,26 +23,24 @@ class AddAdminController():
         input_userrank = self.view.get_input_urank()  # 获取视图login_view信息
         input_userphone = self.view.get_input_uphone()
 
-        if(input_username == ""):
+        if (input_username == ""):
             self.view.mes(message="未输入用户名", mode="information")
-        elif(input_password == ""):
+        elif (input_password == ""):
             self.view.mes(message="未输入密码", mode="information")
-        elif(input_password != double_password):
-            self.view.mes(message="两次密码不一致",mode="critical")
+        elif (input_password != double_password):
+            self.view.mes(message="两次密码不一致", mode="critical")
         elif len(input_username) > 25 or len(input_password) > 25:
-            self.view.mes(message="密码长度太长",mode = "critical")
-        elif(input_userrank==""):
+            self.view.mes(message="密码长度太长", mode="critical")
+        elif (input_userrank == ""):
             self.view.mes(message="未输入等级", mode="information")
-        elif(input_userphone == ""):
-            self.view.mes(message="未输入电话",mode="information")
+        elif (input_userphone == ""):
+            self.view.mes(message="未输入电话", mode="information")
         else:
-            flag = self.model.try_to_add(input_username, input_password,input_userrank,input_userphone)
+            flag = self.model.try_to_add(input_username, input_password, input_userrank, input_userphone)
             if flag:
-                self.view.mes(message="创建管理员成功!",mode="information")
+                self.view.mes(message="创建管理员成功!", mode="information")
             else:
-                self.view.mes(message="创建管理员失败!",mode="information")
-
-
+                self.view.mes(message="创建管理员失败!", mode="information")
 
 
 if __name__ == '__main__':
@@ -51,4 +50,3 @@ if __name__ == '__main__':
     sys.exit(app.exec_())
     # exit_code=app.exec_()
     # sys.exit(exit_code)
-
