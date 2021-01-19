@@ -33,6 +33,10 @@ class LogController():
             self.view.CarNameInputPro.setText(_translate("carnameLog",
                                                          "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">" +
                                                          mode_index[mode] + "：</span></p></body></html>"))
+
+        if self.mode == 'owner':
+            self.view.label.setText(_translate("LogByCarName", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#55aaff;\">请输入车主信息</span></p></body></html>"))
+
         self.view.exec_()
 
     def get_log_data(self):
@@ -48,7 +52,7 @@ class LogController():
         # 获取输入信息并查询项目
         if self.mode == 'plate':
             self.model.get_log_data_plate(query_item, self.circumstance)
-        elif self.mode == 'home':
+        elif self.mode == 'time':
             self.model.get_log_data_time(query_item, self.circumstance)
         else:
             self.model.get_log_data_owner(query_item)
