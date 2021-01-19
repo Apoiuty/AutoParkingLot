@@ -1,13 +1,13 @@
 import sys
 
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication,qApp
 
 from controller.society_controller import SocietyController
 from model.home_model import HomeModel
 from view.home_view import HomeView
 from view.rate_view import rate_view
-from controller.add_car_owner_controller import Car_owner_contrl
+from controller.add_car_owner_controller import Car_owner_contrl,Car_Owner_Change_Control
 
 
 class HomeController(SocietyController):
@@ -27,10 +27,12 @@ class HomeController(SocietyController):
         # 管理员方法绑定
         self.view.action.triggered.connect(self.add_admin)
         self.view.action_2.triggered.connect(self.delete_admin)
-        # 退出按钮绑定
-        self.view.pushButton.clicked.connect(self.exit)
+        # 按钮绑定
+        self.view.btn_relogin.clicked.connect(self.click_btn_relogin)
         #     添加信息补录菜单
         self.view.action_3.triggered.connect(self.add_owner)
+        self.view.action_6.triggered.connect(self.change_owner)
+
 
     def add_owner(self):
         """
@@ -39,12 +41,24 @@ class HomeController(SocietyController):
         """
         control = Car_owner_contrl()
 
-    def exit(self):
-        """
-        退出按钮绑定
-        :return:
-        """
-        sys.exit(self.view)
+    #修改信息
+    def change_owner(self):
+        control=Car_Owner_Change_Control()
+
+    def click_btn_relogin(self):  # 重新登录点击事件的控制
+        re = self.view.ensure_to_quit()
+        if re == True:
+            self.view.close()
+            qApp.exit(666)  # 666是重新登录代码
+        else:
+            pass
+
+    # def exit(self):
+    #     """
+    #     退出按钮绑定
+    #     :return:
+    #     """
+    #     sys.exit(self.view)
 
     def Rate_set(self):
         """

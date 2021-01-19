@@ -16,8 +16,8 @@ if __name__ == '__main__':
     conn.commit()
     conn.close()  #
     dbvisitor = DatabaseVisitor()
-    #删除表
-    # sql='''DROP TABLE HomeHistory'''
+    # #删除表
+    # sql='''DROP TABLE HomeCar'''
     # dbvisitor.drop_table(sql)
 
     # 创建小区停车场——历史停车记录表
