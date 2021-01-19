@@ -11,13 +11,12 @@ from controller.add_car_owner_controller import Car_owner_contrl,Car_Owner_Chang
 
 
 class HomeController(SocietyController):
-    def __init__(self,current_user):
+    def __init__(self):
         self.view = HomeView()
         self.model = HomeModel(self.view)
         self.view.setupUi(self.view)
         self.view.show()  # 控制器创建视图
         self.circumstance = 'home'
-        self.current_user=current_user
 
         #     绑定日志按钮
         self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
