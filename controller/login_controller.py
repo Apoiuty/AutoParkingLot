@@ -20,6 +20,7 @@ class LoginController():
 
     # 登录控制
     def click_btn_login(self):
+
         input_username = self.view.get_input_username()  # 获取视图login_view信息
         input_password = self.view.get_input_password()
         env_home = self.view.is_env_home_selected()
@@ -45,7 +46,7 @@ class LoginController():
         if env_home == True:
             self.new_view = CameraSimulator(home_controller.HomeController())  # 新控制器负责创建新视图
         else:
-            self.new_view = CameraSimulator(society_controller.SocietyController())
+            self.new_view = CameraSimulator(society_controller.SocietyController(self.view.get_input_username()))
 
 
 if __name__ == '__main__':

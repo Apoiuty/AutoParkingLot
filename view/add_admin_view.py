@@ -11,20 +11,16 @@ class AddAdminView(QMainWindow,Ui_add_admin):
 
     def mes(self,message,mode):
         if(mode == "information"):
-            reply = QMessageBox.information(self, 'Message', message, QMessageBox.Yes | QMessageBox.No,
-                                         QMessageBox.No)
+            reply = QMessageBox.information(self, 'Message', message, QMessageBox.Yes,QMessageBox.Yes)
             return reply
         if(mode == "question"):
-            reply = QMessageBox.question(self, 'Message', message, QMessageBox.Yes | QMessageBox.No,
-                                            QMessageBox.No)
+            reply = QMessageBox.question(self, 'Message', message, QMessageBox.Yes,QMessageBox.Yes)
             return reply
         if (mode == "warning"):
-            reply = QMessageBox.warning(self, 'Message', message, QMessageBox.Yes | QMessageBox.No,
-                                         QMessageBox.No)
+            reply = QMessageBox.warning(self, 'Message', message, QMessageBox.Yes,QMessageBox.Yes)
             return reply
         if(mode == "critical"):
-            reply = QMessageBox.critical(self, 'Message', message, QMessageBox.Yes | QMessageBox.No,
-                                        QMessageBox.No)
+            reply = QMessageBox.critical(self, 'Message', message, QMessageBox.Yes,QMessageBox.Yes)
             return reply
     def get_input_username(self):
         re=self.uname.text()
@@ -43,6 +39,13 @@ class AddAdminView(QMainWindow,Ui_add_admin):
     def get_input_uphone(self):
         re = self.uphone.text()
         return re
+
+    def clear_input(self):
+        self.uname.clear()
+        self.upassword.clear()
+        self.doubleupassword.clear()
+        self.urank.clear()
+        self.uphone.clear()
 
 
 if __name__ == '__main__':

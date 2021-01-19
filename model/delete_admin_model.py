@@ -1,14 +1,20 @@
 import sqlite3
 
 from db.operation import DatabaseVisitor
-
+from view.delete_admin_view import DeleteAdminView
 class DeleteAdminModel():
     def __init__(self):
         self.db=DatabaseVisitor()
         self.observer=[]
 
-    def try_to_delete(self,uname):
+    def is_existed(self,uname):
+        dbvisitor = DatabaseVisitor()
+        select_sql="select * from User where Uname= \"%s\""%(uname)
+        if not dbvisitor.find_all(select_sql):
+            return False
+        return True
 
+    def try_to_delete(self,uname):
         dbvisitor = DatabaseVisitor()
         sql = "delete from  User where Uname = \"%s\""%(uname)
         re = dbvisitor.update(sql)
@@ -20,13 +26,9 @@ class DeleteAdminModel():
         # conn.execute(sql)
         # conn.commit()
         # conn.close()
-    def try_to_select(self,uname):
-
+    def search_rank(self,uname):
         dbvisitor = DatabaseVisitor()
-        sql = "select * from  User where Uname = \"%s\""%(uname)
-        re = dbvisitor.update(sql)
-        print(re)
-        if not re:
-            return False
-        else:
-            return True
+        sql = "select * from  User where Uname = \"%s\"" % (uname)
+        re = dbvisitor.find_one(sql)
+
+        return re[2]

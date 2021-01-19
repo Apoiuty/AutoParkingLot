@@ -12,7 +12,7 @@ from view.society_view import SocietyView
 
 
 class SocietyController():
-    def __init__(self):
+    def __init__(self,current_user):
         self.view = SocietyView()
         self.model = SocietyModel(self.view)
         self.view.setupUi(self.view)
@@ -24,6 +24,9 @@ class SocietyController():
         self.new_view = None
         self.rate = 0.05
         self.circumstance = 'society'
+        self.current_user = current_user
+        # print("socite")
+        # print(self.current_user)
 
         # 菜单方法绑定
         self.view.action_4.triggered.connect(lambda: self.Log_menu('plate'))
@@ -39,10 +42,10 @@ class SocietyController():
         self.view.action_2.triggered.connect(self.delete_admin)
 
     def add_admin(self):
-        am = AddAdminController()
+        am = AddAdminController(self.current_user)
 
     def delete_admin(self):
-        dm = DeleteAdminController()
+        dm = DeleteAdminController(self.current_user)
 
     def click_btn_relogin(self):  # 重新登录点击事件的控制
         re = self.view.ensure_to_quit()
