@@ -11,6 +11,7 @@ class LoginView(QMainWindow, Ui_login):
 
     def __init__(self):
         super(LoginView, self).__init__()
+        self.setFixedSize(400, 300)
         self.setupUi(self)
 
     def get_input_username(self):

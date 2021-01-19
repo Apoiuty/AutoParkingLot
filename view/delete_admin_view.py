@@ -7,6 +7,7 @@ from view.pure_ui.delete_admin_ui import Ui_delete_admin
 class DeleteAdminView(QMainWindow,Ui_delete_admin):
     def __init__(self):
         super(DeleteAdminView, self).__init__()
+        self.setFixedSize(400,168)
         self.setupUi(self)
 
     def mes(self, message, mode):
