@@ -24,15 +24,12 @@ class HomeModel(SocietyModel):
             sql = "insert into HomeHistory (\"Hcar\",\"Hflag\",\"Hin\") values (\"%s\",\"%f\",\"%s\")" % (
                 car, 1, str(datetime.now())[:-7])
             re = dbvisitor.update(sql)
-        else:  # 车离开的更新，此处涉及计费等操作，因此可能需要多次数据库操作，还需要考虑那种意外
-
+        else:
             # 没有意外的情况
             sql = "SELECT * FROM HomeHistory WHERE Hcar = '%s' and Hflag = '1'" % (car)
             re = dbvisitor.find_all(sql)
-
             if not re:
                 return
-
             item_to_rite = max(re, key=lambda s: s[0])
             in_time = item_to_rite[-2]
             in_time = datetime.strptime(in_time, "%Y-%m-%d %H:%M:%S")

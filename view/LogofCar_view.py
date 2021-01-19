@@ -18,6 +18,7 @@ class carnameLog(QDialog, Ui_LogByCarName):
         :param dialog: 对话框
         """
         QDialog.__init__(self)
+        self.setFixedSize(self.width(), self.height())
         self.setupUi(self)
         # 设置未查找到提示框
         self.message = QMessageBox()

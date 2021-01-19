@@ -10,6 +10,7 @@ from view.pure_ui.society_ui import Ui_society
 class SocietyView(QMainWindow, Ui_society):
     def __init__(self):
         super(SocietyView, self).__init__()
+        self.setFixedSize(800,600)
         self.setupUi(self)
 
     def ensure_to_quit(self):

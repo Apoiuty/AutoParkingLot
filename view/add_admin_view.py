@@ -6,6 +6,7 @@ import sys
 class AddAdminView(QMainWindow,Ui_add_admin):
     def __init__(self):
         super(AddAdminView, self).__init__()
+        self.setFixedSize(333, 364)
         self.setupUi(self)
 
     def mes(self,message,mode):

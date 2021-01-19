@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication,qApp
 
 from controller.society_controller import SocietyController
 from model.home_model import HomeModel
@@ -28,7 +28,7 @@ class HomeController(SocietyController):
         self.view.action.triggered.connect(self.add_admin)
         self.view.action_2.triggered.connect(self.delete_admin)
         # 退出按钮绑定
-        self.view.pushButton.clicked.connect(self.exit)
+        self.view.btn_login.clicked.connect(self.click_btn_relogin)
         #     添加信息补录菜单
         self.view.action_3.triggered.connect(self.add_owner)
 
@@ -39,12 +39,13 @@ class HomeController(SocietyController):
         """
         control = Car_owner_contrl()
 
-    def exit(self):
-        """
-        退出按钮绑定
-        :return:
-        """
-        sys.exit(self.view)
+    def click_btn_relogin(self):  # 重新登录点击事件的控制
+        re = self.view.ensure_to_quit()
+        if re == True:
+            self.view.close()
+            qApp.exit(666)  # 666是重新登录代码
+        else:
+            pass
 
     def Rate_set(self):
         """

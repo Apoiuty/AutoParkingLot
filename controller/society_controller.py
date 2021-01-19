@@ -9,6 +9,7 @@ from controller.delete_admin_controller import DeleteAdminController
 from model.society_model import SocietyModel
 from view.rate_view import rate_view
 from view.society_view import SocietyView
+from camera.camera_sim import CameraSimulator
 
 
 class SocietyController():
@@ -16,7 +17,8 @@ class SocietyController():
         self.view = SocietyView()
         self.model = SocietyModel(self.view)
         self.view.setupUi(self.view)
-        self.view.btn_relogin.clicked.connect(lambda: self.click_btn_relogin())  # 绑定按钮的点击事件
+        self.view.btn_relogin.clicked.connect(lambda: self.click_btn_relogin())  # 绑定按钮事件
+        # self.view.btn_open_camera.clicked.connect(lambda: self.click_btn_open_camera())
         self.view.btn_handmode_in.clicked.connect(lambda: self.click_btn_handmode_in())
         self.view.btn_handmdoe_out.clicked.connect(lambda: self.click_btn_handmode_out())
         self.view.show()  # 控制器创建视图
@@ -51,6 +53,9 @@ class SocietyController():
             qApp.exit(666)  # 666是重新登录代码
         else:
             pass
+
+    # def click_btn_open_camera(self):#打开模拟器
+    #     camera=CameraSimulator(self.)
 
     def click_btn_handmode_in(self):  # 手动模式下输入进入车牌按钮点击的控制
         car_in = self.view.get_handmode_car_in()

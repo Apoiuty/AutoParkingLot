@@ -44,8 +44,10 @@ class LoginController():
     def open_working_windows(self, env_home):
         if env_home == True:
             self.new_view = CameraSimulator(home_controller.HomeController())  # 新控制器负责创建新视图
+            #self.new_view = home_controller.HomeController()
         else:
             self.new_view = CameraSimulator(society_controller.SocietyController())
+            #self.new_view = society_controller.SocietyController()
 
 
 if __name__ == '__main__':

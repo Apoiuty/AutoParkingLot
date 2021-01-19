@@ -193,7 +193,7 @@ class Ui_society(object):
         self.btn_handmdoe_out.raise_()
         society.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(society)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 18))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -204,7 +204,7 @@ class Ui_society(object):
         self.menubar.setFont(font)
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
-        self.menu.setGeometry(QtCore.QRect(169, 99, 147, 132))
+        self.menu.setGeometry(QtCore.QRect(169, 99, 102, 90))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.menu.setFont(font)
@@ -308,13 +308,3 @@ class Ui_society(object):
         self.action_8.setText(_translate("society", "收费统计"))
         self.action_hand_mode.setText(_translate("society", "切换到手动模式"))
         self.action_auto_mode.setText(_translate("society", "切换到自动模式"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    society = QtWidgets.QMainWindow()
-    ui = Ui_society()
-    ui.setupUi(society)
-    society.show()
-    sys.exit(app.exec_())
