@@ -89,6 +89,9 @@ class SocietyModel():
                 self.observer.show_out_car(result_msg)
 
     def get_rate(self):  # 获得当前费率
-        self.config.read('../config.ini', encoding='utf-8')
-        rate = self.config['sys']['society_rate']
+        config = configparser.ConfigParser()
+        config.read('../config.ini', encoding='utf-8')
+        # self.config.read('../config.ini', encoding='utf-8')
+        # rate = self.config['sys']['society_rate']
+        rate = config['sys']['society_rate']
         return rate
