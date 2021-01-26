@@ -3,6 +3,7 @@ from view.add_admin_view import AddAdminView
 from model.add_admin_model import AddAdminModel
 from PyQt5.QtWidgets import QApplication, QMainWindow, qApp
 import sys
+import re
 
 
 class AddAdminController():
@@ -39,7 +40,11 @@ class AddAdminController():
         elif(self.view.get_input_urank() <= str(self.model.search_rank(self.current_user))):
             self.view.mes(message="等级权限不够,无法创建等级高的管理员", mode="information")
         elif (input_userphone == ""):
-            self.view.mes(message="未输入电话", mode="information")
+            self.view.mes(message="未输入手机", mode="information")
+        elif(len(input_userphone)!=11):
+            self.view.mes(message="请输入11位手机号码", mode="information")
+        elif not re.match(r"^1[34578]\d{9}$", input_userphone):
+            self.view.mes(message="请输入正确的11位手机号码", mode="information")
         elif(self.model.is_existed(input_username)):
             self.view.mes(message="用户已存在", mode="information")
         else:
